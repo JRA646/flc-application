@@ -17,7 +17,7 @@ import Member from "./pages/Member";
 import Hierarchies from "./pages/MasterData/Hierarchies";
 import CellGroup from "./pages/Maintenance/CellGroup";
 import Profile from "./pages/Profile";
-import CampusDetails from "./pages/Campus";
+// import CampusDetails from "./pages/Campus";
 import ServiceTypes from "./pages/MasterData/ServiceTypes";
 export const router = createBrowserRouter([
   {
@@ -48,10 +48,13 @@ export const router = createBrowserRouter([
           { path: "/masterdata/hierarchies", element: <Hierarchies />},
           { path: "/maintenance/cellgroup", element: <CellGroup /> },
           { path: "/profile", element: <Profile /> },
-          { path: "/campuses/:id", element: <CampusDetails /> },
+          // { path: "/campuses/:id", element: <CampusDetails /> },
           { path: "/masterdata/servicetypes", element: <ServiceTypes /> },
         ],
       },
     ],
   },
-]);
+],
+{
+    basename: "/flc-application",
+  });
