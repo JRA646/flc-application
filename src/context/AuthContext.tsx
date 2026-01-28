@@ -66,9 +66,15 @@ export function AuthContextProvider({ children }: { children: ReactNode }) {
       setCountries([]);
       return;
     }
-
     const member = await getMemberByUserId(user.id);
-    setMember(member ?? null);
+
+    if (!member) {
+      setMember(null);
+      setMemberCampusIds([]);
+      setCampuses([]);
+      return;
+    }
+    setMember(member);
 
     
     const member_campuses = await getMemberCampusesByMemberId(member.id)
@@ -78,7 +84,7 @@ export function AuthContextProvider({ children }: { children: ReactNode }) {
     const uniqueCountries = Array.from(
       new Map(
         memberCampuses
-          .map((c) => c.country)
+          .map((c: any) => c.country)
           .filter((c): c is Country => !!c)
           .map((c) => [c.id, c])
       ).values()

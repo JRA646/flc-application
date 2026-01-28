@@ -1,77 +1,3 @@
-// import type { ComponentType, SVGProps } from "react";
-
-// type StatCardProps = {
-//   title: string;
-//   value: number | string;
-//   subtitle: string;
-//   footerText?: string;
-//   footerColor?: "red" | "gray";
-
-//   icon: ComponentType<SVGProps<SVGSVGElement>>;
-//   gradient: string;
-//   glow: string;
-// };
-
-// export default function StatCard({
-//   title,
-//   value,
-//   subtitle,
-//   footerText,
-//   footerColor = "gray",
-//   icon: Icon,
-//   gradient,
-//   glow,
-// }: StatCardProps) {
-//   return (
-//     <div className="relative 
-//     overflow-hidden rounded-2xl 
-//     bg-white p-6 shadow-lg shadow-gray-200/60
-//         transition-all duration-1000 ease-out
-//         hover:-translate-y-2 hover:shadow-xl hover:shadow-gray-300/60">
-//       {/* Decorative circle */}
-//       <div
-//         className={`absolute -top-10 -right-10 h-36 w-36 rounded-full ${glow}`}
-//       />
-
-//       <div className="flex items-start justify-between">
-//         {/* Left */}
-//         <div className="space-y-2">
-//           <p className="text-sm font-semibold tracking-wide text-gray-500 uppercase">
-//             {title}
-//           </p>
-
-//           <p className="text-3xl font-bold text-gray-900">
-//             {value}
-//           </p>
-
-//           <p className="text-sm text-gray-500">
-//             {subtitle}
-//           </p>
-
-//           {footerText && (
-//             <p
-//               className={`text-sm font-medium ${
-//                 footerColor === "red"
-//                   ? "text-red-500"
-//                   : "text-gray-500"
-//               }`}
-//             >
-//               {footerText}
-//             </p>
-//           )}
-//         </div>
-
-//         {/* Icon bubble */}
-//         <div
-//           className={`flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${gradient} shadow-lg`}
-//         >
-//           <Icon className="h-6 w-6 text-white" />
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
 import type { ComponentType, SVGProps } from "react";
 
 type StatCardProps = {
@@ -83,7 +9,6 @@ type StatCardProps = {
 
   icon: ComponentType<SVGProps<SVGSVGElement>>;
   gradient: string;
-  glow: string;
 };
 
 export default function StatCard({
@@ -94,7 +19,6 @@ export default function StatCard({
   footerColor = "gray",
   icon: Icon,
   gradient,
-  glow,
 }: StatCardProps) {
   return (
     <div

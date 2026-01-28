@@ -9,7 +9,7 @@ export interface CampusBase {
   code?: string | null;
   is_active: boolean;
   country: Country;
-  city : City;
+  city?: City | null;
   state: State;
   capacity: number | 0;
   image_path : string;
@@ -45,4 +45,27 @@ export type UpdateCampus = Partial<CampusBase> & {
 export interface CampusFilters {
   keyword?: string;
   isActive?: boolean;
+}
+
+export interface CampusListItem {
+  id: string;
+  name: string;
+  is_active: boolean;
+  capacity: number;
+  image_path?: string;
+  address_line1?: string;
+  address_line2?: string;
+
+  city: {
+    id: string;
+    name: string;
+    state: {
+      id: string;
+      name: string;
+      country?: {
+        id: string;
+        name: string;
+      };
+    }[];
+  }[];
 }

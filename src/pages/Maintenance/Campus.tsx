@@ -12,20 +12,21 @@ import {
 import StatCard from "@/components/StatCard";
 import { useCallback, useEffect, useState } from "react";
 import CampusCard from "@/components/Maintenance/Campus/CampusCard";
-import { fetchCampuses, deleteCampus } from "@/services/campus";
+import { fetchCampuses } from "@/services/campus";
 import { useSupabaseRealtime } from "@/hooks/useSupabaseRealtime";
 import EmptyState from "@/components/EmptyState";
 import { useAuth } from "@/context/AuthContext";
 import Modal from "@/components/Modal";
 import LoadingState from "@/components/LoadingState";
 import { getIsActiveFilter,statuses } from "@/utils/filters";
+import type{Status} from "@/utils/filters";
 
 export default function Campus() {
   const { campusIds } = useAuth();
 
   const [filterOpen, setFilterOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
-  const [selected, setSelected] = useState<statuses>("All Status");
+  const [selected, setSelected] = useState<Status>("All Status");
   const [campuses, setCampuses] = useState<any[]>([]);
   const [search, setSearch] = useState("");
 
@@ -33,11 +34,6 @@ export default function Campus() {
   const [campusActiveLocationTotal, setCampusActiveLocationTotal] = useState(0);
   const [campusActiveTotalCapacity, setCampusActiveTotalCapacity] = useState(0);
   const [loading, setLoading] = useState(true);
-
-  // const getIsActiveFilter = (status: string) => {
-  //   if (status === "All Status") return undefined;
-  //   return status === "Active";
-  // };
 
   const loadCampuses = useCallback(async () => {
     setLoading(true);
@@ -77,7 +73,7 @@ export default function Campus() {
       setCampusActiveLocationTotal(
         new Set(
           activeCampuses
-            .map((c) => c.city?.id)
+            .map((c: any) => c.city?.id)
             .filter(Boolean)
         ).size
       );
@@ -213,7 +209,6 @@ export default function Campus() {
               imageUrl={campus.image_path}
               status={campus.is_active ? "Active" : "Inactive"}
               onEdit={() => console.log("Edit campus")}
-              onDelete={() => deleteCampus(campus.id)}
             />
           ))}
         </div>

@@ -1,5 +1,3 @@
-import type { ReactNode } from "react";
-
 interface LoadingStateProps {
   label?: string;
   size?: "sm" | "md";

@@ -13,14 +13,14 @@ import {
     PlusIcon,
     TrashIcon
 } from "@/config/icon";
-import type { Campus } from "@/types/campus";
+import type { CampusListItem } from "@/types/campus";
 import { fetchCampuses } from "@/services/campus";
 import LoadingState from "@/components/LoadingState";
 
 export default function CampusDetails() {
     const { id } = useParams<{ id: string }>();
 
-    const [campus, setCampus] = useState<Campus | null>(null);
+    const [campus, setCampus] = useState<CampusListItem | null>(null);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -92,10 +92,10 @@ export default function CampusDetails() {
 
                         <div className="flex items-center gap-4 mt-2 text-gray-500 text-sm">
                             <span className="flex items-center gap-1">
-                                <CountryIcon className="w-4 h-4" /> {campus?.city?.state?.country?.name}
+                                <CountryIcon className="w-4 h-4" /> {campus?.city?.[0]?.state?.[0]?.country?.name}
                             </span>
                             <span className="flex items-center gap-1">
-                                <LocationIcon className="w-4 h-4" /> {campus?.city?.name}
+                                <LocationIcon className="w-4 h-4" /> {campus?.city?.[0]?.name}
                             </span>
                         </div>
                     </div>
@@ -135,12 +135,12 @@ export default function CampusDetails() {
                 <div className="rounded-xl bg-white shadow-lg shadow-gray-200/50 mb-8">
                     <div className="p-6">
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                            <InfoItem label="Address" value={campus?.address_line1 + " " + (campus?.address_line2 ?? "") + ", " + campus?.city?.name
-                                + " " + campus?.city?.state?.name
+                            <InfoItem label="Address" value={campus?.address_line1 + " " + (campus?.address_line2 ?? "") + ", " + campus?.city?.[0].name
+                                + " " + campus?.city?.[0]?.state?.[0].name
                             } icon={<LocationIcon className="w-4 h-4 text-indigo-500" />} />
 
-                            <InfoItem label="Timezone" value={campus?.city?.name
-                                + "/" + campus?.city?.state?.name
+                            <InfoItem label="Timezone" value={campus?.city?.[0].name
+                                + "/" + campus?.city?.[0].state?.[0].name
                             } bgcolor="bg-amber-50" icon={<ClockIcon className="w-4 h-4 text-amber-600" />} />
 
                             <InfoItem label="Capacity" value={campus?.capacity.toString()}

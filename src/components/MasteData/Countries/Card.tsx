@@ -5,13 +5,13 @@ type CountryCardProps = {
   country: {
     id: number | string;
     name: string;
-    officialName: string;
+    official_name: string;
     capital: string;
-    phoneCode: string;
-    iso2: string;
-    iso3: string;
-    numeric: string;
-    flagUrl: string;
+    phone_code: string;
+    iso_alpha2: string;
+    iso_alpha3: string;
+    iso_numeric: string;
+    image_path: string;
     is_active: boolean;
   };
 };

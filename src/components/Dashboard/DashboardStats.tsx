@@ -19,7 +19,6 @@ export default function DashboardStats() {
         footerColor="red"
         icon={MembersGroupIcon}
         gradient="from-indigo-500 to-indigo-600"
-        glow="bg-indigo-500/10"
       />
 
       {/* FIRST-TIME VISITORS */}
@@ -29,7 +28,6 @@ export default function DashboardStats() {
         subtitle="This week"
         icon={TrendingUpIcon}
         gradient="from-emerald-500 to-emerald-600"
-        glow="bg-emerald-500/10"
       />
 
       {/* ACTIVE CAMPUSES */}
@@ -39,7 +37,6 @@ export default function DashboardStats() {
         subtitle="10 services"
         icon={ChurchCampusIcon}
         gradient="from-violet-500 to-violet-600"
-        glow="bg-violet-500/10"
       />
     </section>
   );

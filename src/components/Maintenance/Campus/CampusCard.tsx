@@ -1,6 +1,5 @@
 import {
     PencilIcon,
-    TrashIcon,
     LocationIcon,
     MembersGroupIcon,
 } from "@/config/icon";
@@ -15,7 +14,6 @@ type CampusCardProps = {
     imageUrl: string;
     status: CampusStatus;
     onEdit?: () => void;
-    onDelete?: () => void;
 };
 
 export default function CampusCard({
@@ -25,7 +23,6 @@ export default function CampusCard({
     imageUrl,
     status,
     onEdit,
-    onDelete,
 }: CampusCardProps) {
     const isActive = status === "Active";
 

@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://JRA646.github.io/flc-application",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -34,10 +35,5 @@
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.46.4",
     "vite": "^7.2.4"
-  },
-  "homepage": "https://yourusername.github.io/your-repo-name",
-  "scripts": {
-    "build": "vite build",
-    "deploy": "gh-pages -d dist"
   }
 }

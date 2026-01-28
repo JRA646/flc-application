@@ -6,7 +6,8 @@ export interface CountryBase {
   iso_numeric?: string | null
   phone_code?: string | null
   capital?: string | null
-  is_active: boolean
+  is_active: boolean,
+  image_path : string
 }
 
 export interface Country extends CountryBase {
