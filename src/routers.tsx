@@ -25,7 +25,6 @@ export const router = createBrowserRouter([
     element: <Login />,
   },
   {
-     path: "/",
     element: <ProtectedRoute />,
     children: [
       {
@@ -56,6 +55,4 @@ export const router = createBrowserRouter([
     ],
   },
 ],
-{
-    basename: "/flc-application",
-  });
+);
